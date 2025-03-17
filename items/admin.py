@@ -29,3 +29,5 @@ class CategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
     pass
 
 
+
+#test comment
