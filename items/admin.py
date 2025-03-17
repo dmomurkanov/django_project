@@ -27,7 +27,3 @@ class Subcategory(SortableAdminMixin, admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
     pass
-
-
-
-#test comment
