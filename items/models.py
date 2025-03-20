@@ -1,6 +1,6 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from
 
 class User(models.Model):
     name = models.CharField("Имя", max_length=100)
@@ -74,4 +74,8 @@ class Characteristic(models.Model):
     def __str__(self):
         return self.item.title
 
+
+class Cart(models.Model):
+    # item = models.ForeignKey("Item", on_delete=models.SET_NULL, related_name="cart")
+    user = models.OneToOneField()
 
