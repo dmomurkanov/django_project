@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Softech</title>
+
+</head>
+
+<body>
+    <h1>Магазин электроники Softech</h1>
+</body>
+    {% if categories %}
+        <h2>
+            Категории
+            {% for category in categories %}
+            <ul>{{category.name}}</ul>
+            {% endfor %}
+        </h2>
+    {% endif %}
+</html>
