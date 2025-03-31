@@ -1,6 +1,9 @@
 from django.contrib import admin
 from django.contrib.admin import TabularInline
 from adminsortable2.admin import SortableAdminMixin
+from modeltranslation.admin import TabbedTranslationAdmin
+
+
 from .models import Item, Category, SubCategory, Characteristic, Cart, CartItem
 
 
@@ -10,12 +13,12 @@ class CharacteristicInline(TabularInline):
 
 
 @admin.register(Item)
-class ItemAdmin(SortableAdminMixin, admin.ModelAdmin):
+class ItemAdmin(SortableAdminMixin, TabbedTranslationAdmin):
     inlines = [CharacteristicInline, ]
 
 
 @admin.register(Category)
-class CategoryAdmin(SortableAdminMixin, admin.ModelAdmin):
+class CategoryAdmin(SortableAdminMixin, TabbedTranslationAdmin):
     pass
 
 

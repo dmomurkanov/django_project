@@ -21,5 +21,5 @@ from items.views import get_category
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", get_category, name="")
+    path("", get_category, name=""),
 ]

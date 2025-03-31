@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Softech</title>
-
+    <link href="{% static 'styles/style.css' %}" rel="stylesheet">
 </head>
 
 <body>
@@ -17,5 +17,14 @@
             <ul>{{category.name}}</ul>
             {% endfor %}
         </h2>
+    {% endif %}
+    {% if items %}
+    <div class="items">
+        {% for item in items %}
+            {{item.price}}
+            {{item.title}}
+            {{item.description}}
+        {% endfor %}
+    </div>
     {% endif %}
 </html>
