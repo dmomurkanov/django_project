@@ -11,24 +11,25 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 import os
 from pathlib import Path
+import environ
 
-from django.conf.global_settings import STATICFILES_DIRS
+from softech.utils import strtobool
 
+env = environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+env.read_env(os.path.join(BASE_DIR, "envs/.env"))
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-%^+cwva&@$xzu6_n=^13-sa9358q)8p6*pz7=l*i$!(^)tb+^3'
-
+SECRET_KEY = env("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = strtobool(env("DEBUG"))
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -46,9 +47,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'solo',
     # APPS
-    'items',
-    'common',
-    'users',
+    'apps.items',
+    'apps.common',
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -87,7 +88,7 @@ WSGI_APPLICATION = 'softech.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': env("SQLITE_ENGINE"),
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
@@ -151,3 +152,5 @@ LANGUAGES = (
     ('en', gettext('English')),
 )
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'ru'
+
+IS_TEST = True

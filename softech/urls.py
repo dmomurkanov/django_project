@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from items.views import get_category
+from softech import settings
+from softech.front import front_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", get_category, name=""),
 ]
+
+if settings.DEBUG:
+    urlpatterns += front_urlpatterns
+

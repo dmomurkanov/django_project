@@ -1,6 +1,5 @@
-from django.shortcuts import render
 
-from common.models import Common
+from apps.common.models import Common
 
 
 # Create your views here.

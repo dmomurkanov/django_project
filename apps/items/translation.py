@@ -1,6 +1,6 @@
 from modeltranslation import translator
 
-from items.models import Category, Item
+from apps.items.models import Category, Item
 
 
 @translator.register(Category)
@@ -9,7 +9,7 @@ class CategoryTranslations(translator.TranslationOptions):
 
 
 @translator.register(Item)
-class CategoryTranslations(translator.TranslationOptions):
+class ItemsTranslations(translator.TranslationOptions):
     fields = (
         'image',
         'title',

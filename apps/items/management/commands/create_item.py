@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand
 
-from items.models import Item, SubCategory
+from apps.items.models import Item
 
 class Command(BaseCommand):
 

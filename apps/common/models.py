@@ -26,10 +26,8 @@ class Footer(models.Model):
         super(Footer, self).save(*args, **kwargs)
 
 
-
 class Common(SingletonModel):
     address = models.TextField("Адресс")
     schedule = models.TextField("График")
     phones = models.TextField("Телефоны")
     email = models.CharField("Почта", max_length=255)
-
